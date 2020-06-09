@@ -2,7 +2,7 @@ version: "3"
 
 services:
   php:
-    image: php:7.2-apache
+    build: .
     volumes:
       - "./php.ini:/usr/local/etc/php/php.ini"
       - "./html:/var/www/html"
@@ -25,8 +25,8 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
-      - PMA_USER=test
-      - PMA_PASSWORD=test
+      - PMA_USER=root
+      - PMA_PASSWORD=root
     links:
       - mysql
     ports:

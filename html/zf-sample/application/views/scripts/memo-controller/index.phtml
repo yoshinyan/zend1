@@ -1,0 +1,34 @@
+新規作成ボタン(工事中)<br>
+<?php print($this->escape($this->memos)); ?>
+<table border="2">
+  <tr>
+    <th width="100">ID</th>
+    <th width="200">title</th>
+    <th width="200">body</th>
+    <th width="200">edit</th>
+    <th width="200">delete</th>
+  </tr>
+  <pre>
+    <?php var_dump($this->memos); ?>
+  </pre>
+
+  <?php foreach ($this->memos as $memo) : ?>
+  <tr>
+    <td>
+      <?php echo $memo['id']; ?>
+    </td>
+    <td>
+      <?php echo $memo['title']; ?>
+    </td>
+    <td>
+      <?php echo $memo['body']; ?>
+    </td>
+    <td>
+      編集ボタン(工事中)
+    </td>
+    <td>
+      削除ボタン(工事中 )
+    </td>
+  </tr>
+  <?php endforeach; ?>
+</table>
