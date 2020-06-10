@@ -2,32 +2,46 @@
     <button type="button">新規作成</button>
 </a>
 <br>
-<?php print($this->escape($this->memos)); ?>
-<table border="2">
-  <tr>
-    <th width="100">ID</th>
-    <th width="200">title</th>
-    <th width="200">body</th>
-    <th width="200">edit</th>
-    <th width="200">delete</th>
-  </tr>
-  <?php foreach ($this->memos as $memo) : ?>
-  <tr>
-    <td>
-      <?php echo $this->escape($memo['id']); ?>
-    </td>
-    <td>
-      <?php echo $this->escape($memo['title']); ?>
-    </td>
-    <td>
-      <?php echo $this->escape($memo['body']); ?>
-    </td>
-    <td>
-      編集ボタン(工事中)
-    </td>
-    <td>
-      削除ボタン(工事中 )
-    </td>
-  </tr>
-  <?php endforeach; ?>
-</table>
+  <table border="2">
+    <tr>
+      <th width="100">ID</th>
+      <th width="200">title</th>
+      <th width="200">body</th>
+      <th width="40">edit</th>
+      <th width="40">delete</th>
+    </tr>
+    <?php foreach ($this->memos as $memo) : ?>
+      <tr>
+        <td>
+          <?php echo $this->escape($memo['id']); ?>
+        </td>
+        <td>
+          <?php echo $this->escape($memo['title']); ?>
+        </td>
+        <td>
+          <?php echo $this->escape($memo['body']); ?>
+        </td>
+        <td>
+          <form action=
+            "<?php echo $this->url(['controller'=>'Memo','action'=>'edit'], 'default', true) ?>"
+            method="get"
+          >
+              <?php echo $this->formHidden('id', $this->escape($memo['id'])); ?>
+              <?php echo $this->formSubmit('', '編集', ['size' => 3]) ?>
+              </a>
+          </form>
+        </td>
+        <td>
+          <form action=
+              "<?php echo $this->url(['controller'=>'Memo','action'=>'delete'], 'default', true) ?>"
+              method="post"
+            >
+                <?php echo $this->formHidden('id', $this->escape($memo['id'])); ?>
+                <?php echo $this->formSubmit('', '削除', ['size' => 3]) ?>
+                </a>
+            </form>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </table>
+</form>
