@@ -1,4 +1,7 @@
-新規作成ボタン(工事中)<br>
+<a href="<?php echo $this->url(['controller' => 'Memo', 'action' => 'new'], 'default', true) ?>">
+    <button type="button">新規作成</button>
+</a>
+<br>
 <?php print($this->escape($this->memos)); ?>
 <table border="2">
   <tr>
@@ -8,20 +11,16 @@
     <th width="200">edit</th>
     <th width="200">delete</th>
   </tr>
-  <pre>
-    <?php var_dump($this->memos); ?>
-  </pre>
-
   <?php foreach ($this->memos as $memo) : ?>
   <tr>
     <td>
-      <?php echo $memo['id']; ?>
+      <?php echo $this->escape($memo['id']); ?>
     </td>
     <td>
-      <?php echo $memo['title']; ?>
+      <?php echo $this->escape($memo['title']); ?>
     </td>
     <td>
-      <?php echo $memo['body']; ?>
+      <?php echo $this->escape($memo['body']); ?>
     </td>
     <td>
       編集ボタン(工事中)

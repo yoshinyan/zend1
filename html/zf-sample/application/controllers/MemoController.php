@@ -1,6 +1,6 @@
 <?php
 
-class MemoControllerController extends Zend_Controller_Action
+class MemoController extends Zend_Controller_Action
 {
     private $db;
 
@@ -16,16 +16,25 @@ class MemoControllerController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // 行を挿入します。
-        // $result = $db->insert($table, $params);
-
         $select = $this->db->select();
         $select->from('memo', '*');
         $this->view->memos = $this->db->fetchAll($select);
     }
    
-    
+    public function newAction()
+    {
 
+    }
+    
+    public function storeAction()
+    {
+        $this->db->insert('memo', [
+            'title' => $this->getRequest()->getPost('title'),
+            'body' => $this->getRequest()->getPost('body'),
+        ]);
+
+        $this->_helper->redirector('index', 'Memo');
+    }
 
 }
 

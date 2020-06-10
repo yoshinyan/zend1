@@ -1,0 +1,23 @@
+<a href="<?php echo $this->url(['controller' => 'Memo', 'action' => 'index'], 'default', true) ?>">
+    <button type="button">一覧に戻る</button>
+</a>
+<form action=
+      "<?php echo $this->url(['controller'=>'Memo','action'=>'store'], 'default', true) ?>"
+      method="post"
+>
+    <p>
+        <label>title:
+            <br>
+            <?php echo $this->formText('title', '', ['size' => 50]) ?>
+        </label>
+    </p>
+    <p>
+        <label>body:
+            <br>
+            <?php echo $this->formTextarea('body', '', ['size' => 50]) ?>
+        </label>
+    </p>
+    <p>
+        <?php echo $this->formSubmit('送信', '送信', ['size' => 3]) ?>
+    </p>
+</form>

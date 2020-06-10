@@ -12,8 +12,10 @@
           <actionMethod actionName="new"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
-        <controllerFile controllerName="MemoController">
+        <controllerFile controllerName="Memo">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="new"/>
+          <actionMethod actionName="store"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
@@ -29,11 +31,9 @@
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="MemoController">
+          <viewControllerScriptsDirectory forControllerName="Memo">
             <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="MemoController">
-            <viewScriptFile forActionName="index"/>
+            <viewScriptFile forActionName="new"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="new"/>
